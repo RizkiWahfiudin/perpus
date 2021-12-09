@@ -87,10 +87,17 @@ class Data extends CI_Controller {
 
 	public function prosesbuku()
 	{
-		if($this->session->userdata('masuk_perpus') != TRUE){
-			$url=base_url('login');
-			redirect($url);
-		}
+		function __construct(){
+			parent::__construct();
+				//validasi jika user belum login
+			$this->data['CI'] =& get_instance();
+			$this->load->helper(array('form', 'url'));
+			$this->load->model('M_Admin');
+				if($this->session->userdata('masuk_sistem_rekam') != TRUE){
+				   $url=base_url('login');
+				   redirect($url);
+			   }
+			}
 
 		// hapus aksi form proses buku
 		if(!empty($this->input->get('buku_id')))
