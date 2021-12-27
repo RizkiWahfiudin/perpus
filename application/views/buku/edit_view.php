@@ -30,15 +30,6 @@
 									</select>
 								</div>
                                 <div class="form-group">
-                                    <label>Rak / Lokasi</label>
-                                    <select name="rak" class="form-control select2" required="required">
-										<option disabled selected value> -- Pilih Rak / Lokasi -- </option>
-										<?php foreach($rakbuku as $isi){?>
-											<option value="<?= $isi['id_rak'];?>" <?php if($isi['id_rak'] == $buku->id_rak){ echo 'selected';}?>><?= $isi['nama_rak'];?></option>
-										<?php }?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label>ISBN</label>
                                     <input type="text" class="form-control" value="<?= $buku->isbn;?>" name="isbn"  placeholder="Contoh ISBN : 978-602-8123-35-8">
                                 </div>

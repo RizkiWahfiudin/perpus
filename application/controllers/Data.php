@@ -87,31 +87,19 @@ class Data extends CI_Controller {
 
 	public function prosesbuku()
 	{
-		function __construct(){
-			parent::__construct();
-				//validasi jika user belum login
-			$this->data['CI'] =& get_instance();
-			$this->load->helper(array('form', 'url'));
-			$this->load->model('M_Admin');
-				if($this->session->userdata('masuk_sistem_rekam') != TRUE){
-				   $url=base_url('login');
-				   redirect($url);
-			   }
-			}
-
 		// hapus aksi form proses buku
 		if(!empty($this->input->get('buku_id')))
 		{
         
 			$buku = $this->M_Admin->get_tableid_edit('tbl_buku','id_buku',htmlentities($this->input->get('buku_id')));
 			
-			$sampul = './assets/image/buku/'.$buku->sampul;
+			$sampul = './assets_style/image/buku/'.$buku->sampul;
 			if(file_exists($sampul))
 			{
 				unlink($sampul);
 			}
 			
-			$lampiran = './assets/image/buku/'.$buku->lampiran;
+			$lampiran = './assets_style/image/buku/'.$buku->lampiran;
 			if(file_exists($lampiran))
 			{
 				unlink($lampiran);

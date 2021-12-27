@@ -63,11 +63,11 @@ class Transaksi extends CI_Controller {
 			$this->data['pinjam'] = $this->db->query("SELECT DISTINCT `pinjam_id`, `anggota_id`, 
 				`status`, `tgl_pinjam`, `lama_pinjam`, `tgl_balik`, `tgl_kembali` 
 				FROM tbl_pinjam WHERE anggota_id = ? AND status = 'Di Kembalikan' 
-				ORDER BY id_pinjam DESC",array($this->session->userdata('anggota_id')));
+			",array($this->session->userdata('anggota_id')));
 		}else{
 			$this->data['pinjam'] = $this->db->query("SELECT DISTINCT `pinjam_id`, `anggota_id`, 
 				`status`, `tgl_pinjam`, `lama_pinjam`, `tgl_balik`, `tgl_kembali` 
-				FROM tbl_pinjam WHERE status = 'Di Kembalikan' ORDER BY id_pinjam DESC");
+				FROM tbl_pinjam WHERE status = 'Di Kembalikan'");
 		}
 		
 		$this->load->view('header_view',$this->data);
@@ -79,7 +79,6 @@ class Transaksi extends CI_Controller {
 
 	public function pinjam()
 	{	
-
 		$this->data['nop'] = $this->M_Admin->buat_kode('tbl_pinjam','PJ','id_pinjam','ORDER BY id_pinjam DESC LIMIT 1'); 
 		$this->data['idbo'] = $this->session->userdata('ses_id');
         $this->data['user'] = $this->M_Admin->get_table('tbl_user');

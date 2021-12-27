@@ -85,10 +85,6 @@
 							<td><?= $buku->isi;?></td>
 						</tr>
 						<tr>
-							<td>Rak / Lokasi</td>
-							<td><?= $rak->nama_rak;?></td>
-						</tr>
-						<tr>
 							<td>Lampiran</td>
 							<td><?php if(!empty($buku->lampiran !== "0")){?>
 									<a href="<?= base_url('assets_style/image/buku/'.$buku->lampiran);?>" class="btn btn-primary btn-md" target="_blank">
