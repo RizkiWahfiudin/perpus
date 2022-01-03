@@ -164,7 +164,6 @@ class Transaksi extends CI_Controller {
 
 		if(!empty($post['tambah']))
 		{
-
 			$tgl = $post['tgl'];
 			$tgl2 = date('Y-m-d', strtotime('+'.$post['lama'].' days', strtotime($tgl)));
 
@@ -269,95 +268,10 @@ class Transaksi extends CI_Controller {
 		}
 	}
 
-	public function denda()
-	{
-		$this->data['idbo'] = $this->session->userdata('ses_id');	
-
-		$this->data['denda'] =  $this->db->query("SELECT * FROM tbl_biaya_denda ORDER BY id_biaya_denda DESC");
-
-		if(!empty($this->input->get('id'))){
-			$id = $this->input->get('id');
-			$count = $this->M_Admin->CountTableId('tbl_biaya_denda','id_biaya_denda',$id);
-			if($count > 0)
-			{			
-				$this->data['den'] = $this->db->query("SELECT *FROM tbl_biaya_denda WHERE id_biaya_denda='$id'")->row();
-			}else{
-				echo '<script>alert("KATEGORI TIDAK DITEMUKAN");window.location="'.base_url('transaksi/denda').'"</script>';
-			}
-		}
-
-		$this->data['title_web'] = ' Denda ';
-		$this->load->view('header_view',$this->data);
-		$this->load->view('sidebar_view',$this->data);
-		$this->load->view('denda/denda_view',$this->data);
-		$this->load->view('footer_view',$this->data);
-	}
-
-	public function dendaproses()
-	{
-		if(!empty($this->input->post('tambah')))
-		{
-			$post= htmlentities($this->input->post());
-			$data = array(
-				'harga_denda'=>htmlentities($post['harga']),
-				'stat'=>'Tidak Aktif',
-				'tgl_tetap' => date('Y-m-d')
-			);
-
-			$this->db->insert('tbl_biaya_denda', $data);
-			
-			$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-			<p> Tambah  Harga Denda  Sukses !</p>
-			</div></div>');
-			redirect(base_url('transaksi/denda')); 
-		}
-
-		if(!empty($this->input->post('edit')))
-		{
-			$dd = $this->M_Admin->get_tableid('tbl_biaya_denda','stat','Aktif');
-			foreach($dd as $isi)
-			{
-				$data1 = array(
-					'stat'=>'Tidak Aktif',
-				);
-				$this->db->where('id_biaya_denda',$isi['id_biaya_denda']);
-				$this->db->update('tbl_biaya_denda', $data1);
-			}
-
-			$post= $this->input->post();
-			$data = array(
-				'harga_denda'=>htmlentities($post['harga']),
-				'stat'=>$post['status'],
-				'tgl_tetap' => date('Y-m-d')
-			);
-
-			$this->db->where('id_biaya_denda',$post['edit']);
-			$this->db->update('tbl_biaya_denda', $data);
-
-
-			$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-			<p> Edit Harga Denda  Sukses !</p>
-			</div></div>');
-			redirect(base_url('transaksi/denda')); 	
-		}
-
-		if(!empty($this->input->get('denda_id')))
-		{
-			$this->db->where('id_biaya_denda',$this->input->get('denda_id'));
-			$this->db->delete('tbl_biaya_denda');
-
-			$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-warning">
-			<p> Hapus Harga Denda Sukses !</p>
-			</div></div>');
-			redirect(base_url('transaksi/denda')); 
-		}
-	}
-
-
 	public function result()
     {	
-		
-		$user = $this->M_Admin->get_tableid_edit('tbl_user','anggota_id',$this->input->post('kode_anggota'));
+		$user = $this->M_Admin->get_tableid_edit_anggota('tbl_user','anggota_id',$this->input->post('kode_anggota'));
+
 		error_reporting(0);
 		if($user->nama != null)
 		{
@@ -366,6 +280,11 @@ class Transaksi extends CI_Controller {
 							<td>Nama Anggota</td>
 							<td>:</td>
 							<td>'.$user->nama.'</td>
+						</tr>
+						<tr>
+							<td>Jenis Kelamin</td>
+							<td>:</td>
+							<td>'.$user->jenkel.'</td>
 						</tr>
 						<tr>
 							<td>Telepon</td>
@@ -382,11 +301,6 @@ class Transaksi extends CI_Controller {
 							<td>:</td>
 							<td>'.$user->alamat.'</td>
 						</tr>
-						<tr>
-							<td>Level</td>
-							<td>:</td>
-							<td>'.$user->level.'</td>
-						</tr>
 					</table>';
 		}else{
 			echo 'Anggota Tidak Ditemukan !';
@@ -395,9 +309,9 @@ class Transaksi extends CI_Controller {
 	}
 
 	public function buku()
-    {	
+    {
 		$id = $this->input->post('kode_buku');
-		$row = $this->db->query("SELECT * FROM tbl_buku WHERE buku_id ='$id'");
+		$row = $this->db->query("SELECT * FROM tbl_buku WHERE buku_id = '$id'");
 		
 		if($row->num_rows() > 0)
 		{

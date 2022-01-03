@@ -4,7 +4,6 @@
 	$idrak = $buku->id_rak;
 
 	$kat = $this->M_Admin->get_tableid_edit('tbl_kategori','id_kategori',$idkat);
-	$rak = $this->M_Admin->get_tableid_edit('tbl_rak','id_rak',$idrak);
 ?>
 <div class="content-wrapper">
   <section class="content-header">
@@ -95,7 +94,7 @@
 						</tr>
 						<tr>
 							<td>Tanggal Masuk</td>
-							<td><?= $buku->tgl_masuk;?></td>
+							<td><?= \DateTime::createFromFormat('Y-m-d H:i:s', $buku->tgl_masuk)->format('d F Y'); ?></td>
 						</tr>
 					</table>
 		        </div>
@@ -112,7 +111,7 @@
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span></button>
-<h4 class="modal-title"> Anggota Yang Sedang Pinjam</h4>
+<h4 class="modal-title"> Daftar Peminjam Buku <b> <?= $buku->title; ?> </b></h4>
 </div>
 <div id="modal_body" class="modal-body fileSelection1">
 <table id="example1" class="table table-bordered table-striped">
@@ -121,9 +120,8 @@
 			<th>No</th>
 			<th>ID</th>
 			<th>Nama</th>
-			<th>Jenkel</th>
-			<th>Telepon</th>
-			<th>Tgl Pinjam</th>
+			<th>Jenis Kelamin</th>
+			<th>Tanggal Pinjam</th>
 			<th>Lama Pinjam</th>
 		</tr>
 	</thead>
@@ -142,7 +140,6 @@
 			<td><?= $isi->anggota_id;?></td>
 			<td><?= $isi->nama;?></td>
 			<td><?= $isi->jenkel;?></td>
-			<td><?= $isi->telepon;?></td>
 			<td><?= $si['tgl_pinjam'];?></td>
 			<td><?= $si['lama_pinjam'];?> Hari</td>
 		</tr>

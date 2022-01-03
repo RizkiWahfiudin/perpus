@@ -246,7 +246,7 @@ class User extends CI_Controller {
 			$result1 = $this->upload->data();
 			$result = array('gambar'=>$result1);
 			$data1 = array('upload_data' => $this->upload->data());
-			unlink('./assets_style/image/'.$this->input->post('foto'));
+			if($this->input->post('foto') != 'no-image.jpg') unlink('./assets_style/image/'.$this->input->post('foto'));
 			if($this->input->post('pass') !== ''){
 				$data = array(
 					'nama'=>$nama,
@@ -315,7 +315,7 @@ class User extends CI_Controller {
         if($this->uri->segment('3') == ''){ echo '<script>alert("halaman tidak ditemukan");window.location="'.base_url('user').'";</script>';}
         
         $user = $this->M_Admin->get_tableid_edit('tbl_user','id_login',$this->uri->segment('3'));
-        unlink('./assets_style/image/'.$user->foto);
+        if($user->foto != 'no-image.jpg') unlink('./assets_style/image/'.$user->foto);
 		$this->M_Admin->delete_table('tbl_user','id_login',$this->uri->segment('3'));
 		
 		$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-warning">

@@ -72,7 +72,7 @@
 										}
 									?>
 								</td>
-                                <td><?= $isi['tgl_masuk'];?></td>
+                                <td><?= \DateTime::createFromFormat('Y-m-d H:i:s', $isi['tgl_masuk'])->format('d/m/Y'); ?></td>
 									<td <?php if($this->session->userdata('level') == 'Petugas'){?>style="width:17%;"<?php }?>>
 								
 									<?php if($this->session->userdata('level') == 'Petugas'){?>

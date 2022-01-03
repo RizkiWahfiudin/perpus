@@ -28,7 +28,7 @@
                     <div class="icon">
                       <i class="fa fa-edit"></i>
                     </div>
-                    <a href="user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="user" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
 
@@ -38,12 +38,12 @@
                     <div class="inner">
                       <h3><?= $count_buku;?></h3>
 
-                      <p>Jenis Buku</p>
+                      <p>Jumlah Buku</p>
                     </div>
                     <div class="icon">
                       <i class="fa fa-book"></i>
                     </div>
-                    <a href="data" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="data" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div> 
 
@@ -58,7 +58,7 @@
                     <div class="icon">
                       <i class="fa fa-user-plus"></i>
                     </div>
-                    <a href="transaksi" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="transaksi" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
                 <div class="col-lg-3 col-xs-6">
@@ -71,7 +71,7 @@
                     <div class="icon">
                       <i class="fa fa-list"></i>
                     </div>
-                    <a href="transaksi/kembali" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="transaksi/kembali" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
 

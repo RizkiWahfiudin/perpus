@@ -22,7 +22,7 @@
                             <div class="col-sm-6">
 								<div class="form-group">
 									<label>Kategori</label>
-									<select class="form-control select2" required="required"  name="kategori">
+									<select class="form-control select2" required="required" name="kategori">
 										<option disabled selected value> -- Pilih Kategori -- </option>
 										<?php foreach($kats as $isi){?>
 											<option value="<?= $isi['id_kategori'];?>"><?= $isi['nama_kategori'];?></option>
@@ -31,11 +31,11 @@
 								</div>
                                 <div class="form-group">
                                     <label>ISBN</label>
-                                    <input type="text" class="form-control" name="isbn"  placeholder="Contoh ISBN : 978-602-8123-35-8">
+                                    <input type="text" class="form-control" name="isbn" required placeholder="Contoh ISBN : 978-602-8123-35-8">
                                 </div>
                                 <div class="form-group">
                                     <label>Judul Buku</label>
-                                    <input type="text" class="form-control" name="title" placeholder="Contoh : Cara Cepat Belajar Pemrograman Web">
+                                    <input type="text" class="form-control" name="title" required placeholder="Contoh : Cara Cepat Belajar Pemrograman Web">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Pengarang</label>
@@ -53,7 +53,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Jumlah Buku</label>
-                                    <input type="number" class="form-control" name="jml" placeholder="Jumlah buku : 12">
+                                    <input type="number" class="form-control" name="jml" required placeholder="Jumlah buku : 12">
                                 </div>
 								
                                 <div class="form-group">
@@ -72,7 +72,7 @@
                         </div>
                         <div class="pull-right">
 							<input type="hidden" name="tambah" value="tambah">
-                            <button type="submit" class="btn btn-primary btn-md">Submit</button> 
+                            <button type="submit" class="btn btn-primary btn-md">Simpan</button> 
                     </form>
                             <a href="<?= base_url('data');?>" class="btn btn-danger btn-md">Kembali</a>
                         </div>

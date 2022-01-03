@@ -1,37 +1,3 @@
-<?php
-        $tgla = $user->tgl_bergabung;
-        $tglk = $user->tgl_lahir;
-        $bulan = array(
-            '01' => 'Januari',
-            '02' => 'Februari',
-            '03' => 'Maret',
-            '04' => 'April',
-            '05' => 'Mei',
-            '06' => 'Juni',
-            '07' => 'Juli',
-            '08' => 'Agustus',
-            '09' => 'September',
-            '10' => 'Oktober',
-            '11' => 'November',
-            '12' => 'Desember',
-        );
-    
-        $array1=explode("-",$tgla);
-        $tahun=$array1[0];
-        $bulan1=$array1[1];
-        $hari=$array1[2];
-        $bl1 = $bulan[$bulan1];
-		$tgl1 = $hari.' '.$bl1.' '.$tahun;
-		
-
-        $array2=explode("-",$tglk);
-        $tahun2=$array2[0];
-        $bulan2=$array2[1];
-        $hari2=$array2[2];
-        $bl2 = $bulan[$bulan2];
-        $tgl2 = $hari2.' '.$bl2.' '.$tahun2;
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -98,7 +64,7 @@
 									<tr>
 										<td>TTL</td>
 										<td>:</td>
-										<td><?= $user->tempat_lahir;?>, <?= $tgl2 ;?></td>
+										<td><?= $user->tempat_lahir;?>, <?= $user->tgl_lahir?\DateTime::createFromFormat('Y-m-d', $user->tgl_lahir)->format('d F Y'):''; ?></td>
 									</tr>
 									<tr>
 										<td>Alamat</td>
@@ -108,7 +74,7 @@
 									<tr>
 										<td>Tgl Bergabung</td>
 										<td>:</td>
-										<td><?= $tgl1;?></td>
+										<td><?= $user->tgl_bergabung?\DateTime::createFromFormat('Y-m-d', $user->tgl_bergabung)->format('d F Y'):''; ?></td>
 									</tr>
 								</table>
 							</div>

@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email"  value="<?= $user->email;?>" readonly class="form-control" name="email" required="required" placeholder="Ex : admin@google.com">
+                                    <input type="email"  value="<?= $user->email;?>" class="form-control" name="email" required="required" placeholder="Ex : admin@google.com">
                                 </div>
                                 <div class="form-group">
                                     <label>Foto</label>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="pull-right">
-                            <button type="submit" class="btn btn-primary btn-md">Edit Data</button> 
+                            <button type="submit" class="btn btn-primary btn-md">Simpan</button> 
 						</form>
 						<?php if($this->session->userdata('level') == 'Petugas'){?>
 							<a href="<?= base_url('user');?>" class="btn btn-danger btn-md">Kembali</a>

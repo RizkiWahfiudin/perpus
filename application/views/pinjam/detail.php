@@ -34,14 +34,14 @@
 										<td>Tgl Peminjaman</td>
 										<td>:</td>
 										<td>
-											<?= $pinjam->tgl_pinjam;?>
+											<?= \DateTime::createFromFormat('Y-m-d', $pinjam->tgl_pinjam)->format('d/m/Y'); ?>
 										</td>
 									</tr>
 									<tr>
 										<td>Tgl pengembalian</td>
 										<td>:</td>
 										<td>
-											<?= $pinjam->tgl_balik;?>
+											<?= \DateTime::createFromFormat('Y-m-d', $pinjam->tgl_balik)->format('d/m/Y'); ?>
 										</td>
 									</tr>
 									<tr>

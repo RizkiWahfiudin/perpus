@@ -44,7 +44,7 @@
 										<td>:</td>
 										<td>
 											<div class="input-group">
-												<input type="text" class="form-control" required autocomplete="off" name="anggota_id" id="search-box" placeholder="Contoh ID Anggota : AG001" type="text" value="">
+												<input type="text" class="form-control" required autocomplete="off" name="anggota_id" id="search-box" placeholder="Contoh ID Anggota : WEB-0002" type="text" value="">
 												<span class="input-group-btn">
 													<a data-toggle="modal" data-target="#TableAnggota" class="btn btn-primary"><i class="fa fa-search"></i></a>
 												</span>
@@ -63,7 +63,7 @@
 										<td>Lama Peminjaman</td>
 										<td>:</td>
 										<td>
-											<input type="number" required placeholder="Lama Pinjam Contoh : 2 Hari (2)" name="lama" class="form-control">
+											<input type="number" required placeholder="Lama Pinjam Contoh : 2 Hari" name="lama" class="form-control">
 										</td>
 									</tr>
 								</table>
@@ -74,13 +74,13 @@
 										<td colspan="3">Pinjam Buku</td>
 									</tr>
 									<tr>
-										<td>Kode Buku</td>
+										<td>Pilih Buku</td>
 										<td>:</td>
 										<td>
 											<div class="input-group">
-												<input type="text" class="form-control" autocomplete="off" name="buku_id" id="buku-search" placeholder="Contoh ID Buku : BK001" type="text" value="">
+												<!-- <input type="text" class="form-control" autocomplete="off" name="buku_id" id="buku-search" placeholder="Contoh ID Buku : BK001" type="text" value=""> -->
 												<span class="input-group-btn">
-													<a data-toggle="modal" data-target="#TableBuku" class="btn btn-primary"><i class="fa fa-search"></i></a>
+													<a data-toggle="modal" data-target="#TableBuku" class="btn btn-primary"><i class="fa fa-book"></i></a>
 												</span>
 											</div>
 										</td>
@@ -164,7 +164,7 @@
 <!-- /.modal -->
 <script>
 	$(".fileSelection1 #Select_File2").click(function (e) {
-		document.getElementsByName('buku_id')[0].value = $(this).attr("data_id");
+		// document.getElementsByName('buku_id')[0].value = $(this).attr("data_id");
 		$('#TableBuku').modal('hide');
 		$.ajax({
 			type: "POST",
@@ -217,8 +217,7 @@
 				<th>No</th>
 				<th>ID</th>
 				<th>Nama</th>
-				<th>Jenkel</th>
-				<th>Telepon</th>
+				<th>Jenis Kelamin</th>
 				<th>Level</th>
 				<th>Aksi</th>
 			</tr>
@@ -232,7 +231,6 @@
 				<td><?= $isi['anggota_id'];?></td>
 				<td><?= $isi['nama'];?></td>
 				<td><?= $isi['jenkel'];?></td>
-				<td><?= $isi['telepon'];?></td>
 				<td><?= $isi['level'];?></td>
 				<td style="width:20%;">
 					<button class="btn btn-primary" id="Select_File1" data_id="<?= $isi['anggota_id'];?>">

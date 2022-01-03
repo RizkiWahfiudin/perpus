@@ -43,10 +43,10 @@
                                 <th>No Pinjam</th>
                                 <th>ID Anggota</th>
                                 <th>Nama</th>
-                                <th>Pinjam</th>
-                                <th>Balik</th>
+                                <th>Tanggal Pinjam</th>
+                                <th>Tanggal Kembali</th>
                                 <th style="width:10%">Status</th>
-                                <th>Kembali</th>
+                                <th>Tanggal Kembali</th>
                                 <th>Aksi</th>
                             </tr>
 						</thead>
@@ -64,8 +64,8 @@
                                 <td><?= $isi['pinjam_id'];?></td>
                                 <td><?= $isi['anggota_id'];?></td>
                                 <td><?= $ang; ?></td>
-                                <td><?= $isi['tgl_pinjam'];?></td>
-                                <td><?= $isi['tgl_balik'];?></td>
+                                <td><?= \DateTime::createFromFormat('Y-m-d', $isi['tgl_pinjam'])->format('d/m/Y'); ?></td>
+                                <td><?= \DateTime::createFromFormat('Y-m-d', $isi['tgl_balik'])->format('d/m/Y'); ?></td>
                                 <td><?= $isi['status'];?></td>
 								<td>
 									<?php 

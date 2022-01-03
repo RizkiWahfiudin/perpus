@@ -44,7 +44,8 @@ class Register extends CI_Controller {
                 'user'=>$user,
                 'pass'=>$pass,
                 'level'=>2, // 1: Petugas; 2: Anggota;
-                'tgl_bergabung'=>date('Y-m-d')
+                'tgl_bergabung'=>date('Y-m-d'),
+                'foto'=>'no-image.jpg'
             );
             $this->db->insert('tbl_user',$data);
             echo '<script>alert("Registrasi User Berhasil!");

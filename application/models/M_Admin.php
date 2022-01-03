@@ -28,6 +28,14 @@ class M_Admin extends CI_Model
      return $edit->row();
    }
 
+   function get_tableid_edit_anggota($table_name,$where,$id)
+   {
+     $this->db->like($where,$id);
+     $this->db->where('level','Anggota');
+     $edit = $this->db->get($table_name);
+     return $edit->row();
+   }
+
    function add_multiple($table,$data = array())
   {
       $total_array = count($data);
