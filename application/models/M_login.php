@@ -6,7 +6,7 @@ class M_Login extends CI_Model
 
   function GET_LOGIN($user,$pass)
   {
-      $row = $this->db->query("SELECT * FROM tbl_login WHERE user ='$user' AND pass = '$pass'");
+      $row = $this->db->query("SELECT * FROM tbl_user WHERE user ='$user' AND pass = '$pass'");
       return $row;
   }
 

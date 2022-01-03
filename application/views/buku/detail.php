@@ -132,7 +132,7 @@
 	$pin = $this->db->query("SELECT * FROM tbl_pinjam WHERE buku_id ='$bukuid' AND status = 'Dipinjam'")->result_array();
 	foreach($pin as $si)
 	{
-		$isi = $this->M_Admin->get_tableid_edit('tbl_login','anggota_id',$si['anggota_id']);
+		$isi = $this->M_Admin->get_tableid_edit('tbl_user','anggota_id',$si['anggota_id']);
 		if($isi->level == 'Anggota'){
 		?>
 		<tr>

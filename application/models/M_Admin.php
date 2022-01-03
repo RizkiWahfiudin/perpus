@@ -119,7 +119,7 @@ class M_Admin extends CI_Model
   function get_user($user)
   {
     $this->db->where('id_login',$user);
-    $get_user = $this->db->get('tbl_login');
+    $get_user = $this->db->get('tbl_user');
     return $get_user->row();
 	}
 	
