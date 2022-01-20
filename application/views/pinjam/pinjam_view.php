@@ -59,10 +59,10 @@
 									<?php if($this->session->userdata('level') == 'Petugas'){ ?>
 										<?php if($isi['tgl_kembali'] == '0') {?>
 											<a href="<?= base_url('transaksi/kembalipinjam/'.$isi['pinjam_id']);?>" class="btn btn-warning btn-sm" title="pengembalian buku">
-												<i class="fa fa-sign-out"></i> Kembalikan</a>
+												<i class="fa fa-sign-out"></i></a>
 										<?php }else{ ?>
 											<a href="javascript:void(0)" class="btn btn-success btn-sm" title="pengembalian buku">
-												<i class="fa fa-check"></i> Dikembalikan</a>
+												<i class="fa fa-check"></i></a>
 										<?php }?>
 										<a href="<?= base_url('transaksi/detailpinjam/'.$isi['pinjam_id'].'?pinjam=yes');?>" class="btn btn-primary btn-sm" title="detail pinjam"><i class="fa fa-eye"></i></button></a>
 										<a href="<?= base_url('transaksi/prosespinjam?pinjam_id='.$isi['pinjam_id']);?>" 
